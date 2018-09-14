@@ -4,15 +4,22 @@ let {formatArguments}=require('../CommandLine.js')
 //
 const c_arguments=process.argv.splice(2)
 let configfile=formatArguments('config',c_arguments);
+let configPrefix=formatArguments('prefix',c_arguments);
 if (/\.config.js/.test(configfile)){
     console.error('不用输入.config.js')
     return;
 }
 let isless=formatArguments('less',c_arguments)||true;
 let jsjs=formatArguments('js',c_arguments)||true;
-const prefix='../../../';
-configfile=prefix+'config/'+configfile+'.config.js'
+let prefix='../../../';
+if (configPrefix){
+    prefix=configPrefix
+    configfile=prefix+configfile+'.config.js'
+}else{
+    configfile=prefix+'config/'+configfile+'.config.js'
+}
 let config=require(configfile);
+console.log('config:',config,configfile)
 let buildConfig=config.build;
 let devConfig=config.dev;
 let {beautifierPath,beautifierChangeCallback}=buildConfig;
