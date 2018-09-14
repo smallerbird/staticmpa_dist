@@ -1,5 +1,6 @@
 .DS_Store
 .idea
+.idea/vcs.xml
 node_modules/
 npm/staticmpa/node_modules/
 build
