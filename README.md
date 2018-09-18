@@ -25,17 +25,16 @@
 -----
 1 . 从一个已有的项目开始
  
- > git clone下来,地址：git@github.com:smallerbird/bangbang.js.git
- 
-    ```sh
-    git clone git@github.com:smallerbird/staticmpa_demo.git
-    ```
+```sh
+git clone git@github.com:smallerbird/staticmpa_demo.git
+
+```
     
 2 . 安装依赖
 
 ```sh
 cd staticmpa_demo
-npm i git://github.com:smallerbird/bangbang.js.git -g
+npm i bangbang -g
 npm i
 ```
 
