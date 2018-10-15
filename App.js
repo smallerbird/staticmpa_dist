@@ -84,10 +84,12 @@ function start({rootPath,port=3000,hostname='127.0.0.1'}){
                 }
                 var code=op.code;
                 let data=op.data
+                let resultCode=op.resultCode?op.resultCode:0;
+                let resultMsg=op.resultMsg?op.resultMsg:'';
                 if (code!=200){ //serverReqInfo
-                    return resStatusCode({res,code:401,content:data});
+                    return resStatusCode({res,code,content:data});
                 }else{
-                    return resJosn({res,data});
+                    return resJosn({res,data,resultCode,resultMsg});
                 }
             }else{
                 return resStatusCode({res,code:401});
